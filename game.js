@@ -47,7 +47,11 @@ function checkAnswer(currentLevel) {
     }, 200);
 
     $("h1").text("Salah tolol!");
+    $(".hint-message").text(`you should click: ${gamePattern.join("-")}`)
     $("button").text("Ulang")
+    setTimeout(() => {
+      $(".hint-message").fadeOut(100)
+    }, 5000)
     startOver();
     $("button").fadeIn(200)
     start.start = false
@@ -90,6 +94,7 @@ if (!start.start) {
     start.start = true;
     nextSequence();
     $("button").fadeOut(200)
+    $(".tutor").fadeOut(200)
   });
 
 setInterval(() => {
